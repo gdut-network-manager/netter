@@ -1,4 +1,4 @@
-// +build !windows
+// +build windows
 
 package main
 
@@ -11,6 +11,8 @@ func main() {
 		fmt.Println("欢迎使用GDUT网络测试工具！")
 		fmt.Println("1.单次测试（约需一分钟）")
 		fmt.Println("2.持续测试（需要手动关闭窗口来终止）")
+		fmt.Println("提示：可以按Ctrl+Shift+H隐藏窗口，按Ctlr+Shift+S显示窗口。")
+		go HotkeyHandel()
 		fmt.Printf("请输入数字并按回车：")
 		var choice int
 		fmt.Scanf("%d", &choice)
@@ -24,4 +26,7 @@ func main() {
 			fmt.Println()
 		}
 	}
+	fmt.Println("\n按回车退出。")
+	fmt.Scanln()
+	fmt.Scanln() //windows要读多一行，不然会直接退出
 }
